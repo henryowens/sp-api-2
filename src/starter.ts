@@ -1,11 +1,12 @@
-import { json, urlencoded } from 'body-parser';
-import express, { Express } from 'express';
+import { json, urlencoded } from "body-parser";
+import express, { Express } from "express";
+import serverless from "serverless-http";
 
-import { Routes as infoRoutes } from './api/routes/infoRoutes';
-import { Routes as socialRoutes } from './api/routes/socialRoutes';
-import { connectDB } from './config/db';
+import { Routes as infoRoutes } from "./api/routes/infoRoutes";
+import { Routes as socialRoutes } from "./api/routes/socialRoutes";
+import { connectDB } from "./config/db";
 
-export async function buildApp(): Promise<Express> {
+export function buildApp() {
   // create express server
   const app = express();
 
@@ -17,8 +18,10 @@ export async function buildApp(): Promise<Express> {
   connectDB();
 
   // routes
-  await infoRoutes(app);
-  await socialRoutes(app);
+  infoRoutes(app);
+  socialRoutes(app);
 
-  return Promise.resolve(app);
+  return app;
 }
+
+exports.handler = serverless(buildApp());
