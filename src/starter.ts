@@ -1,6 +1,5 @@
 import { json, urlencoded } from "body-parser";
-import express, { Express } from "express";
-import serverless from "serverless-http";
+import express from "express";
 
 import { Routes as infoRoutes } from "./api/routes/infoRoutes";
 import { Routes as socialRoutes } from "./api/routes/socialRoutes";
@@ -24,4 +23,3 @@ export function buildApp() {
   return app;
 }
 
-exports.handler = serverless(buildApp());

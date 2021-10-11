@@ -2,11 +2,10 @@
   "name": "sp-api",
   "version": "1.0.0",
   "description": "Endpoints for the social point platform",
-  "main": "server.js",
+  "main": "./src/server.ts",
   "scripts": {
-    "start": "netlify-lambda serve server",
-    "build": "netlify-lambda build src",
-    "test": "eslint functions --ext .ts"
+    "start": "tsc && node ./dist/server.js",
+    "build": "tsc -p tsconfig.json"
   },
   "author": "henry (henry.tom.owens@gmail.com)",
   "license": "ISC",

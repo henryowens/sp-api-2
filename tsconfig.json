@@ -11,10 +11,10 @@
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
     "resolveJsonModule": true /* Include modules imported with .json extension. */,
     "lib": ["es2017"],
-    "types": ["node", "jest"],
-    "typeRoots": ["node_modules/@types", "./src/types"]
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"]
   },
-  "include": ["src/**/*.ts", "server/server.ts"],
+  "include": ["src/**/*.ts", "src/server.ts"],
   "exclude": ["node_modules/**"],
   "compileOnSave": false
 }
