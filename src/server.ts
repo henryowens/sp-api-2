@@ -1,9 +1,14 @@
-import { Express } from 'express';
+import { Server } from "http";
+import { buildApp } from "./starter";
 
-import { buildApp } from './starter';
+let server: Server;
 
-buildApp().then((app: Express) => {
+function runApp() {
+  const app = buildApp();
   const port = process.env.PORT || 8080;
-  app.listen(port);
-  console.log(`App listening at port ${port}`);
-});
+  server = app.listen(port, () => {
+    console.log(`\n HTTP server is running: http://localhost:${port}`);
+  });
+}
+
+runApp();

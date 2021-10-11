@@ -2,7 +2,7 @@ import { connect, ConnectionOptions } from 'mongoose';
 
 const connectDB = async () => {
   try {
-    const options: ConnectionOptions = {
+    const options = {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
