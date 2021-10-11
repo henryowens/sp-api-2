@@ -11,4 +11,4 @@ function runApp() {
   });
 }
 
-runApp();
+module.exports.handler = runApp();
