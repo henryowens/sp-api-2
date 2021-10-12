@@ -1,8 +1,7 @@
 import { json, urlencoded } from "body-parser";
 import express from "express";
 
-import { Routes as infoRoutes } from "./api/routes/infoRoutes";
-import { Routes as socialRoutes } from "./api/routes/socialRoutes";
+import { routes } from "./api/routes";
 import { connectDB } from "./config/db";
 
 export function buildApp() {
@@ -17,9 +16,7 @@ export function buildApp() {
   connectDB();
 
   // routes
-  infoRoutes(app);
-  socialRoutes(app);
+  app.use("/api", routes());
 
   return app;
 }
-

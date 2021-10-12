@@ -1,13 +1,13 @@
-import { Application, Request, Response } from 'express';
+import { Request, Response, Router } from "express";
 
-import { logEndpoint } from '../../utils/logger';
-import { InfoController } from '../controllers/infoController';
+import { logEndpoint } from "../../utils/logger";
+import { InfoController } from "../controllers/infoController";
 
-export function Routes(app: Application) {
+export function Routes(router: Router) {
   const user = new InfoController();
 
-  app
-    .route('/info/:username')
+  router
+    .route("/info/:username")
     .get(async (req: Request, res: Response) =>
       logEndpoint(req, res, user.getUserByUserName)
     )
@@ -15,8 +15,8 @@ export function Routes(app: Application) {
       logEndpoint(req, res, user.updateUser)
     );
 
-  app
-    .route('/info')
+  router
+    .route("/info")
     .get(async (req: Request, res: Response) =>
       logEndpoint(req, res, user.getAllUsers)
     )
