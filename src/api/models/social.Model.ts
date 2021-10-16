@@ -1,4 +1,10 @@
-import { LeanDocument, model, Schema, SchemaDefinition } from 'mongoose';
+import {
+  Document,
+  LeanDocument,
+  model,
+  Schema,
+  SchemaDefinition,
+} from "mongoose";
 
 const socialDocument: SchemaDefinition<LeanDocument<undefined>> = {
   url: {
@@ -7,9 +13,25 @@ const socialDocument: SchemaDefinition<LeanDocument<undefined>> = {
   username: {
     type: String,
   },
+  id: {
+    type: Number,
+    unique: true
+  }
 };
 
-const social = new Schema(
+interface SocialItem {
+  url: string;
+  username: string;
+  id: number;
+}
+
+export interface Social extends Document {
+  username: string;
+  whatsapp: SocialItem;
+  facebook: SocialItem;
+}
+
+const social = new Schema<Social>(
   {
     username: {
       type: String,
@@ -25,7 +47,7 @@ const social = new Schema(
       unique: true,
     },
   },
-  { collection: 'social' }
+  { collection: "social" }
 );
 
-export const SocialModel = model('social', social);
+export const SocialModel = model("social", social);

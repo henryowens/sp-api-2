@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { model, Schema } from "mongoose";
 
 const info = new Schema(
   {
@@ -23,8 +23,12 @@ const info = new Schema(
       type: String,
       required: true,
     },
+    imgUrl: {
+      type: String,
+      required: true,
+    },
   },
-  { collection: 'info' }
+  { collection: "info" }
 );
 
-export const InfoModel = model('info', info);
+export const InfoModel = model("info", info);

@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
 
-import { SocialModel } from '../models/social.Model';
+import { SocialModel } from "../models/social.Model";
 
 export class SocialController {
   public async getSocialByUserName(req: Request, res: Response) {
@@ -8,7 +8,24 @@ export class SocialController {
       if (err) {
         res.send(err);
       }
-      res.json(social);
+
+      const socials = social[0];
+      console.log("socials", socials);
+
+      res.json([
+        {
+          name: "whatsapp",
+          username: socials.whatsapp.username,
+          id: socials.whatsapp.id,
+          url: socials.whatsapp.url,
+        },
+        {
+          name: "facebook",
+          username: socials.facebook.username,
+          id: socials.facebook.id,
+          url: socials.facebook.url,
+        },
+      ]);
     });
   }
 

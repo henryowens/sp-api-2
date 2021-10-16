@@ -13,13 +13,13 @@ export function Routes(router: Router) {
     )
     .put(async (req: Request, res: Response) =>
       logEndpoint(req, res, user.updateUser)
+    )
+    .delete(async (req: Request, res: Response) =>
+      logEndpoint(req, res, user.deleteUser)
     );
 
   router
     .route("/info")
-    .get(async (req: Request, res: Response) =>
-      logEndpoint(req, res, user.getAllUsers)
-    )
     .post(async (req: Request, res: Response) =>
       logEndpoint(req, res, user.createUser)
     );
