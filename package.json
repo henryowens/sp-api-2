@@ -1,5 +1,5 @@
 {
-  "name": "sp-api",
+  "name": "sp-users",
   "version": "1.0.0",
   "description": "Endpoints for the social point platform",
   "main": "./src/server.ts",
