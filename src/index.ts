@@ -24,5 +24,6 @@ connectDB();
 app.use("/.netlify/functions/server", routes()); // path must route to lambda
 app.use("/", (_req, res) => res.sendFile(join(__dirname, "../index.html")));
 
+export default app;
 module.exports = app;
 module.exports.handler = serverless(app);

@@ -2,9 +2,9 @@
   "name": "sp-users",
   "version": "1.0.0",
   "description": "Endpoints for the social point platform",
-  "main": "./src/server.ts",
+  "main": "functions",
   "scripts": {
-    "start": "tsc && node ./dist/server.js",
+    "start": "nodemon server-local.js",
     "build": "netlify-lambda build src"
   },
   "author": "henry (henry.tom.owens@gmail.com)",
