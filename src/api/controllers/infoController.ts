@@ -22,7 +22,7 @@ export class InfoController {
       if (err) {
         res.send(err);
       }
-      res.status(200).json(info);
+      res.status(200).json(info[0]);
     });
   }
 
