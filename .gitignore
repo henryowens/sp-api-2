@@ -1,6 +1,7 @@
 node_modules
 *-lock.json
 dist
+functions
 tsconfig.tsbuildinfo
 
 .env.local
