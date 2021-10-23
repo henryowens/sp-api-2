@@ -1,6 +1,17 @@
-import { model, Schema } from "mongoose";
+import { Document, model, Schema } from "mongoose";
 
-const info = new Schema(
+export interface Info {
+  username: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  mobile: string;
+  imgUrl: string;
+}
+
+interface DInfo extends Document, Info {}
+
+const info = new Schema<DInfo>(
   {
     username: {
       type: String,

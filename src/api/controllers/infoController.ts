@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { readFileSync } from "fs";
-import { join } from "path";
+import { CustomRequest } from "../../utils/misc";
 
-import { InfoModel } from "../models/infoModel";
+import { InfoModel, Info } from "../models/infoModel";
 
 export class InfoController {
   // create
-  public async createUser(req: Request, res: Response) {
+  public async createUser(req: CustomRequest<Info>, res: Response) {
     const newUser = new InfoModel({ ...req.body });
+
     newUser.save((err, info) => {
       if (err) {
         res.send(err);

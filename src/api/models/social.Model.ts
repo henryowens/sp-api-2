@@ -15,8 +15,8 @@ const socialDocument: SchemaDefinition<LeanDocument<undefined>> = {
   },
   id: {
     type: Number,
-    unique: true
-  }
+    unique: true,
+  },
 };
 
 interface SocialItem {
@@ -25,13 +25,15 @@ interface SocialItem {
   id: number;
 }
 
-export interface Social extends Document {
+export interface Social {
   username: string;
   whatsapp: SocialItem;
   facebook: SocialItem;
 }
 
-const social = new Schema<Social>(
+interface DSocial extends Document, Social {}
+
+const social = new Schema<DSocial>(
   {
     username: {
       type: String,

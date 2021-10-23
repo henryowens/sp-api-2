@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
+import { CustomRequest } from "../../utils/misc";
 
-import { SocialModel } from "../models/social.Model";
+import { Social, SocialModel } from "../models/social.Model";
 
 export class SocialController {
-  public async getSocialByUserName(req: Request, res: Response) {
+  public async getSocialByUserName(req: CustomRequest<Social>, res: Response) {
     await SocialModel.find({ username: req.params.username }, (err, social) => {
       if (err) {
         res.send(err);
