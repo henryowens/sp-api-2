@@ -2,7 +2,6 @@ import serverless from "serverless-http";
 import express from "express";
 import { config } from "dotenv";
 import { json, urlencoded } from "body-parser";
-import { join } from "path";
 
 import { connectDB } from "./config/db";
 import { routes } from "./api/routes";
@@ -22,11 +21,6 @@ connectDB();
 
 // routes
 app.use("/.netlify/functions/server", routes()); // path must route to lambda
-app.use("/", (_req, res) => res.sendFile(join(__dirname, "../index.html")));
-
-app._router.stack;
-
-console.log("Henry Was Here :)");
 
 export default app;
 module.exports = app;
