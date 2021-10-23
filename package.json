@@ -4,7 +4,7 @@
   "description": "Endpoints for the social point platform",
   "main": "functions",
   "scripts": {
-    "start": "nodemon server-local.js",
+    "start": "nodemon server-local.ts",
     "build": "netlify-lambda build src"
   },
   "author": "henry (henry.tom.owens@gmail.com)",

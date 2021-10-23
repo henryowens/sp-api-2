@@ -14,7 +14,7 @@
     "types": ["node"],
     "typeRoots": ["node_modules/@types"]
   },
-  "include": ["src/**/*.ts", "src/server.ts"],
+  "include": ["src/**/*.ts", "src"],
   "exclude": ["node_modules/**"],
   "compileOnSave": false
 }
