@@ -5,7 +5,7 @@
   "main": "./src/server.ts",
   "scripts": {
     "start": "tsc && node ./dist/server.js",
-    "build": "tsc -p tsconfig.json"
+    "build": "netlify-lambda build src"
   },
   "author": "henry (henry.tom.owens@gmail.com)",
   "license": "ISC",
