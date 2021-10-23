@@ -1,19 +1,28 @@
-import { Server } from "http";
-import { buildApp } from "./starter";
-
 import serverless from "serverless-http";
-import { Express } from "express";
+import express from "express";
+import { config } from "dotenv";
+import { json, urlencoded } from "body-parser";
+import { join } from "path";
 
-let server: Server;
+import { connectDB } from "./config/db";
+import { routes } from "./api/routes";
 
-function runApp() {
-  const app = buildApp();
-  const port = process.env.PORT || 3000;
-  server = app.listen(port, () => {
-    console.log(`\n HTTP server is running: http://localhost:${port}`);
-  });
-}
+// setting up env vars
+config({ path: "./.env.local" });
 
-const app: Express = buildApp();
+// create express server
+const app = express();
 
+// body parser
+app.use(json());
+app.use(urlencoded({ extended: true }));
+
+// mongoose setup
+connectDB();
+
+// routes
+app.use("/.netlify/functions/server", routes()); // path must route to lambda
+app.use("/", (_req, res) => res.sendFile(join(__dirname, "../index.html")));
+
+module.exports = app;
 module.exports.handler = serverless(app);
