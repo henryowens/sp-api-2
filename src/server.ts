@@ -1,6 +1,9 @@
 import { Server } from "http";
 import { buildApp } from "./starter";
 
+import serverless from "serverless-http";
+import { Express } from "express";
+
 let server: Server;
 
 function runApp() {
@@ -11,4 +14,6 @@ function runApp() {
   });
 }
 
-module.exports.handler = runApp();
+const app: Express = buildApp();
+
+module.exports.handler = serverless(app);
