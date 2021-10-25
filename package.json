@@ -2,10 +2,10 @@
   "name": "sp-users",
   "version": "1.0.0",
   "description": "Endpoints for the social point platform",
-  "main": "functions",
+  "main": "dist",
   "scripts": {
-    "start": "nodemon server-local.ts",
-    "build": "netlify-lambda build src"
+    "start": "nodemon src/server-local.ts",
+    "build": "tsc -p tsconfig.json"
   },
   "author": "henry (henry.tom.owens@gmail.com)",
   "license": "ISC",
@@ -20,14 +20,12 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-functional": "^3.7.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "netlify-lambda": "^2.0.14",
     "nodemon": "^2.0.13",
     "prettier": "^2.4.1",
     "serverless-http": "^2.7.0",
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "@netlify/functions": "^0.7.2",
     "@typescript-eslint/parser": "^4.33.0",
     "body-parser": "^1.19.0",
     "dotenv": "^10.0.0",

@@ -20,7 +20,7 @@ app.use(urlencoded({ extended: true }));
 connectDB();
 
 // routes
-app.use("/.netlify/functions/server", routes()); // path must route to lambda
+app.use("/api", routes());
 
 export default app;
 module.exports = app;
