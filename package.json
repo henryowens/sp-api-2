@@ -30,7 +30,8 @@
     "dotenv": "^10.0.0",
     "eslint-config-airbnb": "^18.2.1",
     "express": "4.17.1",
-    "mongoose": "^5.0.0"
+    "mongoose": "^5.0.0",
+    "ts-node": "^10.4.0"
   },
   "keywords": [
     "node",
