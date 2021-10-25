@@ -2,7 +2,7 @@
   "name": "sp-users",
   "version": "1.0.0",
   "description": "Endpoints for the social point platform",
-  "main": "dist",
+  "main": "src/server.ts",
   "scripts": {
     "start": "nodemon src/server.ts"
   },
