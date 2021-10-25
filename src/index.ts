@@ -22,6 +22,8 @@ connectDB();
 // routes
 app.use("/api", routes());
 
+app.listen(3000, () => console.log("Local app listening on port 3000!"));
+
 export default app;
 module.exports = app;
 module.exports.handler = serverless(app);
